@@ -1,0 +1,8 @@
+/sistema/ruc_ecuador/*
+/sistema/bootstrap/*
+/sistema/config/*
+/sistema/conexiones/*
+/sistema/facturacion_electronica/firma_digital/*
+/sistema/facturacion_electronica/xml/*
+/sistema/docs_temp/*
+.vs/
