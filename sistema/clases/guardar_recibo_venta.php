@@ -41,6 +41,13 @@ while ($row_detalle=mysqli_fetch_array($sql_recibo_temporal)){
 	$id_producto=$row_detalle['id_producto'];
 	$id_bodega=$row_detalle['id_bodega'];
 	$id_medida_salida=$row_detalle['id_medida'];
+
+	if($id_medida_salida==0){
+		$sql_medida = mysqli_query($con,"SELECT * FROM productos_servicios where id ='".$id_producto."' ");
+		$row_medida=mysqli_fetch_array($sql_medida);
+		$id_medida_salida=$row_medida['id_unidad_medida'];
+		}
+		
 	$lote=$row_detalle['lote'];
 	$vencimiento=$row_detalle['vencimiento'];
 	$codigo_producto= $row_detalle['codigo_producto'];

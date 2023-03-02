@@ -37,7 +37,7 @@ include("../validadores/generador_codigo_unico.php");
 		$registros=$_POST["registros"];
 					
 			foreach ($registros as $valor ){
-				$codigo_unico=codigo_unico(20);
+				$codigo_unico=codigo_unico(19)."4";
 				
 				$tipo_cambio=mysqli_query($con, "SELECT * FROM factura_tmp WHERE id = '".$valor."' ");
 				$row_tipo_cambio = mysqli_fetch_array($tipo_cambio);
@@ -102,8 +102,7 @@ include("../validadores/generador_codigo_unico.php");
 				$encabezado_consignacion=mysqli_query($con, "INSERT INTO encabezado_consignacion VALUES (null,'".$fecha_cambio_producto."','".$ruc_empresa."','".$codigo_unico."','".$id_cliente."','VENTA','".$siguiente_orden."','".$observacion_consignacion_venta."','".$fecha_registro."','".$id_usuario."','','','', 'FACTURA','".$serie_factura."','".$secuencial_factura."','','','')");
 				$detalle_consignacion=mysqli_query($con, "INSERT INTO detalle_consignacion VALUES (null,'".$id_nuevo_producto."','".$codigo_producto."','".$nombre_producto."','".$nuevo_lote."','".$vencimiento."','".$id_bodega."','".$id_medida."','".$ruc_empresa."','".$codigo_unico."','".$nueva_cantidad."','".$numero_consignacion_afecta."','".$nup."','".$precio."', '".$descuento."')");
 				
-				
-				echo registro_inventario($con, $ruc_empresa, $codigo_unico, $id_usuario, $valor, $cantidad_entra);
+				//echo registro_inventario($con, $ruc_empresa, $codigo_unico, $id_usuario, $valor, $cantidad_entra);
 				}
 			}
 			
@@ -143,7 +142,8 @@ include("../validadores/generador_codigo_unico.php");
 				</div>
 				<?php
 			}
-			
+
+			/*
 function registro_inventario($con, $ruc_empresa, $codigo_unico, $id_usuario, $id_cuerpo_factura, $cantidad_entra){
 
 			ini_set('date.timezone','America/Guayaquil');
@@ -190,8 +190,7 @@ function registro_inventario($con, $ruc_empresa, $codigo_unico, $id_usuario, $id
 				$nombre_producto=mysqli_query($con, "SELECT * FROM productos_servicios WHERE id = '".$id_producto_entra."' ");
 				$row_nombre_producto = mysqli_fetch_array($nombre_producto);
 				$nombre_producto_entra=$row_nombre_producto['nombre_producto'];
-				
-			
+						
 
 			$guarda_nueva_entrada_inventario=mysqli_query($con, "INSERT INTO inventarios VALUES (null, '".$ruc_empresa."','".$id_producto_entra."','".$precio_producto_entra."', '".$cantidad_entra."','0','".$fecha_registro."','".$vencimiento_entra."','".$referencia."','".$id_usuario."','".$id_medida_entra."','".$fecha_registro."','O','".$bodega_entra."','ENTRADA','".$codigo_producto_entra."','".$nombre_producto_entra."','0','OK','".$lote_entra."','".$codigo_unico."')");
 
@@ -205,6 +204,7 @@ function registro_inventario($con, $ruc_empresa, $codigo_unico, $id_usuario, $id
 		$.notify('Lo siento no se registro en el inventario.','error');
 		</script>";
 		}
-	
+			
 	}	
+	*/
 ?>
